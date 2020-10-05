@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zajecia1\\Zajecia1.csproj": {}
+    "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zadanie2\\Zadanie2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zajecia1\\Zajecia1.csproj": {
+    "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zadanie2\\Zadanie2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zajecia1\\Zajecia1.csproj",
-        "projectName": "Zajecia1",
-        "projectPath": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zajecia1\\Zajecia1.csproj",
+        "projectUniqueName": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zadanie2\\Zadanie2.csproj",
+        "projectName": "Zadanie2",
+        "projectPath": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zadanie2\\Zadanie2.csproj",
         "packagesPath": "C:\\Users\\Bartosz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zajecia1\\obj\\",
+        "outputPath": "C:\\Users\\Bartosz\\Source\\Repos\\Atelir\\LabP3\\Zadanie2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bartosz\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,0 +1,13 @@
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.exe
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.deps.json
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.runtimeconfig.json
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.runtimeconfig.dev.json
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.dll
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\bin\Debug\netcoreapp3.1\Zadanie2.pdb
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.csprojAssemblyReference.cache
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.AssemblyInfoInputs.cache
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.AssemblyInfo.cs
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.csproj.CoreCompileInputs.cache
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.dll
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.pdb
+C:\Users\Bartosz\Source\Repos\Atelir\LabP3\Zadanie2\obj\Debug\netcoreapp3.1\Zadanie2.genruntimeconfig.cache
