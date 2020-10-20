@@ -13,6 +13,20 @@ namespace Zadanie2
             Mz2
         }
 
+        static void MiejsceZeroweWZerz(ref int LiczbaB, ref int LiczbaA)
+        {
+
+            int MiejsceZeroweWZerze = (-LiczbaB) / (2 * LiczbaA);
+            Console.WriteLine($"Miejsce zerowe jest równe: {MiejsceZeroweWZerze}");
+        }
+
+        static void MiejsceZeroweWJedynce(ref int LiczbaB, ref int LiczbaA, double Delta)
+        {
+
+            double MiejsceZeroweWJedynce1 = ((-LiczbaB) + Delta)/ (2 * LiczbaA);
+            double MiejsceZeroweWJedynce2 = ((-LiczbaB) - Delta) / (2 * LiczbaA);
+            Console.WriteLine($"Miejsce zerowe jest równe: {MiejsceZeroweWJedynce1} oraz {MiejsceZeroweWJedynce2}");
+        }
 
         static void Main(string[] args)
         {
@@ -25,7 +39,7 @@ namespace Zadanie2
             bool sprawdzA = int.TryParse(a, out _);
             bool sprawdzB = int.TryParse(b, out _);
             bool sprawdzC = int.TryParse(c, out _);
-            if (sprawdzA == true && sprawdzB == true && sprawdzC == true)
+            if (sprawdzA && sprawdzB && sprawdzC)
             {
 
                 int LiczbaA = int.Parse(a);
@@ -36,22 +50,20 @@ namespace Zadanie2
 
                 Console.WriteLine($"Twoja delta wynosi: {delta}");
 
-                
+                double pierwiastekZDelty = Math.Sqrt(delta);
 
-                Wyniki wyniki = Wyniki.Mz0;
-                wyniki |= Wyniki.Mz1;
-                wyniki |= Wyniki.Mz2;
+                Wyniki wyniki;
 
                 if (delta < 0)
                 {
                     wyniki = Wyniki.Mz0;
-
+                    //Brak miejsc zerowych
                 }
                 else if(delta == 0)
                 {
 
                     wyniki = Wyniki.Mz1;
-
+                    
                 }
                 else
                 {
@@ -68,9 +80,11 @@ namespace Zadanie2
                         break;
                     case Wyniki.Mz1:
                         Console.WriteLine("Jest 1 miejsce zerowe");
+                        MiejsceZeroweWZerz(ref LiczbaB, ref LiczbaA);
                         break;
                     case Wyniki.Mz2:
                         Console.WriteLine("Są 2 miejsca zerowe");
+                        MiejsceZeroweWJedynce(ref LiczbaB, ref LiczbaA, pierwiastekZDelty);
                         break;
                     default:
                         break;
