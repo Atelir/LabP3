@@ -46,17 +46,39 @@ namespace Zadanie3
 
         static void Main(string[] args)
         {
-            int[][] tablicaPoszarpana = new int[3][];
+            int[][] tablicaPoszarpana = new int[4][];
+            Random rnd = new Random();
 
-            tablicaPoszarpana[0] = new int[] {5, 3, 2, 1, 0 };
-            tablicaPoszarpana[1] = new int[] { -5, 3, 9, 1, -15 };
-            tablicaPoszarpana[2] = new int[] { -8, 3, 5, 8, 4 };
+            //tablicaPoszarpana[0] = new int[] {5, 3, 2, 1, 0 };
+            //tablicaPoszarpana[1] = new int[] { -5, 3, 9, 1, -15 };
+            //tablicaPoszarpana[2] = new int[] { -8, 3, 5, 8, 4 };
+            
+            for (int i = 0; i < tablicaPoszarpana.Length; i++)
+            {
+                tablicaPoszarpana[i] = new int[4];
+            }
+
+            for (int i = 0; i < tablicaPoszarpana.Length; i++)
+            {
+                for (int j = 0; j < tablicaPoszarpana[i].Length; j++)
+                {
+                    tablicaPoszarpana[i][j] = rnd.Next(0,11);
+                }
+
+            }
 
             FunkcjaSum(ref tablicaPoszarpana);
 
             Console.WriteLine("Napisz zdanie: ");
             string zdanie = Console.ReadLine();
-            SprawdzTekst(ref zdanie);
+            if (!string.IsNullOrEmpty(zdanie) && !string.IsNullOrWhiteSpace(zdanie))
+            {
+                SprawdzTekst(ref zdanie);
+            }
+            else
+            {
+                Console.WriteLine("Wpisz zdanie.");
+            }
         }
 
     }
