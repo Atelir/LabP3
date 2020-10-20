@@ -49,9 +49,6 @@ namespace Zadanie3
             int[][] tablicaPoszarpana = new int[4][];
             Random rnd = new Random();
 
-            //tablicaPoszarpana[0] = new int[] {5, 3, 2, 1, 0 };
-            //tablicaPoszarpana[1] = new int[] { -5, 3, 9, 1, -15 };
-            //tablicaPoszarpana[2] = new int[] { -8, 3, 5, 8, 4 };
             
             for (int i = 0; i < tablicaPoszarpana.Length; i++)
             {
