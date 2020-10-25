@@ -13,14 +13,14 @@ namespace Zadanie2
             Mz2
         }
 
-        static void MiejsceZeroweWZerz(ref int LiczbaB, ref int LiczbaA)
+        static void MiejsceZeroweWZerz(int LiczbaB,int LiczbaA)
         {
 
             int MiejsceZeroweWZerze = (-LiczbaB) / (2 * LiczbaA);
             Console.WriteLine($"Miejsce zerowe jest równe: {MiejsceZeroweWZerze}");
         }
 
-        static void MiejsceZeroweWJedynce(ref int LiczbaB, ref int LiczbaA, double Delta)
+        static void MiejsceZeroweWJedynce(int LiczbaB, int LiczbaA, double Delta)
         {
 
             double MiejsceZeroweWJedynce1 = ((-LiczbaB) + Delta)/ (2 * LiczbaA);
@@ -80,11 +80,11 @@ namespace Zadanie2
                         break;
                     case Wyniki.Mz1:
                         Console.WriteLine("Jest 1 miejsce zerowe");
-                        MiejsceZeroweWZerz(ref LiczbaB, ref LiczbaA);
+                        MiejsceZeroweWZerz(LiczbaB,LiczbaA);
                         break;
                     case Wyniki.Mz2:
                         Console.WriteLine("Są 2 miejsca zerowe");
-                        MiejsceZeroweWJedynce(ref LiczbaB, ref LiczbaA, pierwiastekZDelty);
+                        MiejsceZeroweWJedynce(LiczbaB,LiczbaA, pierwiastekZDelty);
                         break;
                     default:
                         break;

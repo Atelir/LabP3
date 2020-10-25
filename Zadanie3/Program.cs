@@ -9,7 +9,7 @@ namespace Zadanie3
     class Program
     {
 
-        static void FunkcjaSum(ref int[][] tablicaposzarpana)
+        static void FunkcjaSum(int[][] tablicaposzarpana)
         {
             int wynik = 0;
             for (int i = 0; i < tablicaposzarpana.Length; i++)
@@ -25,7 +25,7 @@ namespace Zadanie3
 
         }
 
-        static void SprawdzTekst (ref string zdanie)
+        static void SprawdzTekst (string zdanie)
         {
             string v = char.ToUpper(zdanie[0]) + zdanie.Substring(1);
 
@@ -64,13 +64,13 @@ namespace Zadanie3
 
             }
 
-            FunkcjaSum(ref tablicaPoszarpana);
+            FunkcjaSum(tablicaPoszarpana);
 
             Console.WriteLine("Napisz zdanie: ");
             string zdanie = Console.ReadLine();
             if (!string.IsNullOrEmpty(zdanie) && !string.IsNullOrWhiteSpace(zdanie))
             {
-                SprawdzTekst(ref zdanie);
+                SprawdzTekst(zdanie);
             }
             else
             {
