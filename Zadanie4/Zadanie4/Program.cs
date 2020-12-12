@@ -28,7 +28,7 @@ namespace Zadanie4
 
         static void WypelnijRegal(Ksiazka[,,] Regal)
         {         
-            Ksiazka ksiazka = new Ksiazka("Elo", "test", 1, 1, 1);
+            
 
             for (int i = 0; i < 3; i++)
             {
@@ -36,10 +36,13 @@ namespace Zadanie4
                 {
                     for (int k = 0; k < 10; k++)
                     {
+
+                        Ksiazka ksiazka = new Ksiazka("Elo" + i + j + k, "test", i, j, k);
                         Regal[i, j, k] = ksiazka;
                     }
                 }
             }
+
 
             Ksiazka a = new Ksiazka("Chce zdac p3", "Ja", 2, 1, 5);
 
@@ -56,8 +59,7 @@ namespace Zadanie4
                 {
                     for (int k = 0; k < 10; k++)
                     {
-
-                        if(Regal[i,j,k].Autor.Contains(sprawdzenie, StringComparison.OrdinalIgnoreCase) || Regal[i, j, k].Tytul.Contains(sprawdzenie, StringComparison.OrdinalIgnoreCase))
+                        if (Regal[i,j,k].Autor.Contains(sprawdzenie, StringComparison.OrdinalIgnoreCase) || Regal[i, j, k].Tytul.Contains(sprawdzenie, StringComparison.OrdinalIgnoreCase))
                         {
                             Console.WriteLine($"Podana książka znajduje się na: Regale:{Regal[i,j,k].NrRegalu}, Półce: {Regal[i, j, k].NrPolki} oraz na Miejscu: {Regal[i, j, k].NrMiejscaNaPolce}");
                             return;

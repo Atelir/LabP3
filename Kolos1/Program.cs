@@ -34,6 +34,9 @@ namespace Kolos1
                 Email = email;
                 DataZalozenia = dataZalozenia;
             }
+
+
+
         }
 
         static int ocena(Komputer komputer)
