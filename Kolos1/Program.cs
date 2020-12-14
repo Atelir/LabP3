@@ -39,7 +39,129 @@ namespace Kolos1
 
         //}
 
-        static int ocena(Komputer komputer)
+        public static void Wylicz(int ocena1, int ocena2, int ocena3)
+        {
+
+            //Najlepsza ocena
+
+            int pozostałe = 0;
+
+            if (ocena1 > ocena2)
+            {
+                if (ocena1 > ocena3)
+                {
+                    Console.WriteLine($"Najlepszy komputer to : komputer1");
+                    pozostałe += 1;
+                }
+                else
+                {
+                    Console.WriteLine($"Najlepszy komputer to :komputer3");
+                    pozostałe += 3;
+                }
+            }
+            else
+            {
+                if (ocena2 > ocena3)
+                {
+                    Console.WriteLine($"Najlepszy komputer to :komputer2");
+                    pozostałe += 2;
+                }
+                else
+                {
+                    Console.WriteLine($"Najlepszy komputer to :komputer3");
+                    pozostałe += 3;
+                }
+            }
+
+            //Najgorsza ocena
+
+            if (ocena1 < ocena2)
+            {
+                if (ocena1 < ocena3)
+                {
+                    Console.WriteLine($"Najgorszy komputer to :komputer1");
+                    pozostałe += 1;
+                }
+                else
+                {
+                    Console.WriteLine($"Najgorszy komputer to :komputer3");
+                    pozostałe += 3;
+                }
+            }
+            else
+            {
+                if (ocena2 < ocena3)
+                {
+                    Console.WriteLine($"Najgorszy komputer to :komputer2");
+                    pozostałe += 2;
+                }
+                else
+                {
+                    Console.WriteLine($"Najgorszy komputer to :komputer3");
+                    pozostałe += 3;
+                }
+            }
+
+            switch (pozostałe)
+            {
+                case 3:
+                    Console.WriteLine($"Średni komputer to: komputer3");
+                    break;
+                case 4:
+                    Console.WriteLine($"Średni komputer to: komputer2");
+                    break;
+                case 5:
+                    Console.WriteLine($"Średni komputer to: komputer1");
+                    break;
+                default:
+                    Console.WriteLine("ERROR");
+                    break;
+            }
+
+
+        }
+        
+
+        static void Zadanie2(int ile)
+        {
+
+            string[] nazwy = new string[ile];
+            int[] ilosc = new int[ile];
+            double[] cena = new double[ile];
+
+            nazwy[0] = "elo1";
+            nazwy[1] = "elo2";
+
+            ilosc[0] = 5;
+            ilosc[1] = 10;
+
+            cena[0] = 2;
+            cena[1] = 9;
+
+            double sumaZVat = 0;
+            double sumaBezVat = 0;
+
+            for (int i = 0; i < ile; i++)
+            {
+                Console.Write(i + 1);
+                Console.Write($" {nazwy[i]}");
+                Console.Write($" {ilosc[i]}");
+                Console.Write($" {cena[i]}");
+                Console.Write($" {ilosc[i] * cena[i]}");
+                Console.Write($" {cena[i] * 1.23}");
+                sumaBezVat += cena[i];
+                sumaZVat += cena[i] * 1.23;
+                Console.WriteLine();
+
+            }
+            Console.WriteLine($"Cena bez vat: {sumaBezVat}");
+            Console.WriteLine($"Cena z vat: {sumaZVat}");
+
+
+
+        }
+
+        public static int ocena(Komputer komputer)
         {
 
             int suma;
@@ -58,84 +180,14 @@ namespace Kolos1
             int ocena2 = ocena(komputer2);
             int ocena3 = ocena(komputer3);
 
-            int[] zbior = new int[3] { ocena1, ocena2, ocena3};
+            Wylicz(ocena1, ocena2, ocena3);
 
-            //Najlepsza ocena
 
-            int pozostałe = 0;
+            Console.WriteLine("Podaj ilość produktów:");
+            string wpisz = Console.ReadLine();
+            int ile = Int16.Parse(wpisz);
 
-            if(ocena1 > ocena2)
-            {
-                if(ocena1 > ocena3)
-                {
-                    Console.WriteLine($"Najlepszy komputer to :{komputer1.nazwa}");
-                    pozostałe += 1;
-                }
-                else
-                {
-                    Console.WriteLine($"Najlepszy komputer to :{komputer3.nazwa}");
-                    pozostałe += 3;
-                }
-            }
-            else
-            {
-                if(ocena2 > ocena3)
-                {
-                    Console.WriteLine($"Najlepszy komputer to :{komputer2.nazwa}");
-                    pozostałe += 2;
-                }
-                else
-                {
-                    Console.WriteLine($"Najlepszy komputer to :{komputer3.nazwa}");
-                    pozostałe += 3;
-                }
-            }
-
-            //Najgorsza ocena
-
-            if (ocena1 < ocena2)
-            {
-                if (ocena1 < ocena3)
-                {
-                    Console.WriteLine($"Najgorszy komputer to :{komputer1.nazwa}");
-                    pozostałe += 1;
-                }
-                else
-                {
-                    Console.WriteLine($"Najgorszy komputer to :{komputer3.nazwa}");
-                    pozostałe += 3;
-                }
-            }
-            else
-            {
-                if (ocena2 < ocena3)
-                {
-                    Console.WriteLine($"Najgorszy komputer to :{komputer2.nazwa}");
-                    pozostałe += 2;
-                }
-                else
-                {
-                    Console.WriteLine($"Najgorszy komputer to :{komputer3.nazwa}");
-                    pozostałe += 3;
-                }
-            }
-
-            switch (pozostałe)
-            {
-                case 3:
-                    Console.WriteLine($"Średni komputer to: {komputer3.nazwa}");
-                    break;
-                case 4:
-                    Console.WriteLine($"Średni komputer to: {komputer2.nazwa}");
-                    break;
-                case 5:
-                    Console.WriteLine($"Średni komputer to: {komputer1.nazwa}");
-                    break;
-                default:
-                    Console.WriteLine("ERROR");
-                    break;
-            }
-
+            Zadanie2(ile);
         }
     }
 }
