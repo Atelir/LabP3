@@ -21,23 +21,61 @@ namespace Kolos1
             }
         }
 
-        //public class BazaFirm
-        //{
+        public class BazaFirm
+        {
 
-        //    public string Nazwa;
-        //    string Email;
-        //    int DataZalozenia;
+            public string Nazwa;
+            string Email;
+            DateTime Date;
+            
 
-        //    public BazaFirm(string nazwa, string email, int dataZalozenia)
-        //    {
-        //        Nazwa = nazwa;
-        //        Email = email;
-        //        DataZalozenia = dataZalozenia;
-        //    }
+            public BazaFirm(string nazwa, string email, DateTime date)
+            {
+
+                bool check;
+                bool check1;
+                DateTime dzisiaj = DateTime.Now;
+
+                check = char.IsUpper(nazwa, 0);
+                check1 = email.Contains("@");
+
+                if (check)
+                {
+                    Nazwa = nazwa;
+                }
+                else {
+                    Console.WriteLine("Nazwa nie zaczyna się od dużej litery");
+                }
+
+                if (check1)
+                {
+
+                    Email = email;
+
+                }
+                else {
+
+                    Console.WriteLine("Email nie zawiera @");
+
+                }
+
+                if (date < dzisiaj) {
+
+                    Date = date;
+                }
+                else
+                {
+
+                    Console.WriteLine("Podano złą datę");
+
+                }
+
+                
+            }
 
 
 
-        //}
+        }
 
         public static void Wylicz(int ocena1, int ocena2, int ocena3)
         {
@@ -188,6 +226,11 @@ namespace Kolos1
             int ile = Int16.Parse(wpisz);
 
             Zadanie2(ile);
+
+            DateTime test = new DateTime(2021, 12, 20);
+
+            BazaFirm bazaFirm = new BazaFirm("Nazwa","test@test.pl",test);
+
         }
     }
 }
