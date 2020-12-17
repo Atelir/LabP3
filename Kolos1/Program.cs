@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Kolos1
 {
@@ -236,9 +237,12 @@ namespace Kolos1
 
             Array.Sort(oceny, delegate (Komputer cena1, Komputer Cena2) { return cena1.cena.CompareTo(Cena2.cena); });
 
+            int srednia = elementy/2;
+
+
             Console.WriteLine($"Najlepszy komputer to komputer nr:  {oceny[2].nazwa}");
-            Console.WriteLine($"Najgorszy komputer to komputer nr:  {oceny[0].nazwa}");
-            Console.WriteLine($"Średni komputer to komputer nr:  {oceny[1].nazwa}");
+            Console.WriteLine($"Najgorszy komputer to komputer nr:  {oceny[oceny.Length-1].nazwa}");
+            Console.WriteLine($"Średni komputer to komputer nr:  {oceny[srednia].nazwa}");
 
             //
 
