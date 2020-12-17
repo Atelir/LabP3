@@ -34,7 +34,8 @@ namespace Kolos1
 
                 bool check;
                 bool check1;
-                DateTime dzisiaj = DateTime.Now;
+                DateTime dzisiaj = DateTime.UtcNow;
+
 
                 check = char.IsUpper(nazwa, 0);
                 check1 = email.Contains("@");
@@ -44,7 +45,9 @@ namespace Kolos1
                     Nazwa = nazwa;
                 }
                 else {
-                    Console.WriteLine("Nazwa nie zaczyna się od dużej litery");
+                    
+                    throw new ArgumentException("Nazwa nie zaczyna się od dużej litery");
+
                 }
 
                 if (check1)
@@ -55,7 +58,7 @@ namespace Kolos1
                 }
                 else {
 
-                    Console.WriteLine("Email nie zawiera @");
+                    throw new ArgumentException("Email nie zawiera @");
 
                 }
 
@@ -66,7 +69,8 @@ namespace Kolos1
                 else
                 {
 
-                    Console.WriteLine("Podano złą datę");
+                    throw new ArgumentException("Podano złą datę");
+
 
                 }
 
@@ -80,85 +84,87 @@ namespace Kolos1
         public static void Wylicz(int ocena1, int ocena2, int ocena3)
         {
 
+
+            #region
             //Najlepsza ocena
 
-            int pozostałe = 0;
+            //int pozostałe = 0;
 
-            if (ocena1 > ocena2)
-            {
-                if (ocena1 > ocena3)
-                {
-                    Console.WriteLine($"Najlepszy komputer to : komputer1");
-                    pozostałe += 1;
-                }
-                else
-                {
-                    Console.WriteLine($"Najlepszy komputer to :komputer3");
-                    pozostałe += 3;
-                }
-            }
-            else
-            {
-                if (ocena2 > ocena3)
-                {
-                    Console.WriteLine($"Najlepszy komputer to :komputer2");
-                    pozostałe += 2;
-                }
-                else
-                {
-                    Console.WriteLine($"Najlepszy komputer to :komputer3");
-                    pozostałe += 3;
-                }
-            }
+            //if (ocena1 > ocena2)
+            //{
+            //    if (ocena1 > ocena3)
+            //    {
+            //        Console.WriteLine($"Najlepszy komputer to : komputer1");
+            //        pozostałe += 1;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"Najlepszy komputer to :komputer3");
+            //        pozostałe += 3;
+            //    }
+            //}
+            //else
+            //{
+            //    if (ocena2 > ocena3)
+            //    {
+            //        Console.WriteLine($"Najlepszy komputer to :komputer2");
+            //        pozostałe += 2;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"Najlepszy komputer to :komputer3");
+            //        pozostałe += 3;
+            //    }
+            //}
 
-            //Najgorsza ocena
+            ////Najgorsza ocena
 
-            if (ocena1 < ocena2)
-            {
-                if (ocena1 < ocena3)
-                {
-                    Console.WriteLine($"Najgorszy komputer to :komputer1");
-                    pozostałe += 1;
-                }
-                else
-                {
-                    Console.WriteLine($"Najgorszy komputer to :komputer3");
-                    pozostałe += 3;
-                }
-            }
-            else
-            {
-                if (ocena2 < ocena3)
-                {
-                    Console.WriteLine($"Najgorszy komputer to :komputer2");
-                    pozostałe += 2;
-                }
-                else
-                {
-                    Console.WriteLine($"Najgorszy komputer to :komputer3");
-                    pozostałe += 3;
-                }
-            }
+            //if (ocena1 < ocena2)
+            //{
+            //    if (ocena1 < ocena3)
+            //    {
+            //        Console.WriteLine($"Najgorszy komputer to :komputer1");
+            //        pozostałe += 1;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"Najgorszy komputer to :komputer3");
+            //        pozostałe += 3;
+            //    }
+            //}
+            //else
+            //{
+            //    if (ocena2 < ocena3)
+            //    {
+            //        Console.WriteLine($"Najgorszy komputer to :komputer2");
+            //        pozostałe += 2;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"Najgorszy komputer to :komputer3");
+            //        pozostałe += 3;
+            //    }
+            //}
 
-            switch (pozostałe)
-            {
-                case 3:
-                    Console.WriteLine($"Średni komputer to: komputer3");
-                    break;
-                case 4:
-                    Console.WriteLine($"Średni komputer to: komputer2");
-                    break;
-                case 5:
-                    Console.WriteLine($"Średni komputer to: komputer1");
-                    break;
-                default:
-                    Console.WriteLine("ERROR");
-                    break;
-            }
-
+            //switch (pozostałe)
+            //{
+            //    case 3:
+            //        Console.WriteLine($"Średni komputer to: komputer3");
+            //        break;
+            //    case 4:
+            //        Console.WriteLine($"Średni komputer to: komputer2");
+            //        break;
+            //    case 5:
+            //        Console.WriteLine($"Średni komputer to: komputer1");
+            //        break;
+            //    default:
+            //        Console.WriteLine("ERROR");
+            //        break;
+            //}
+            #endregion
 
         }
-        
+
 
         static void Zadanie2(int ile)
         {
@@ -210,24 +216,42 @@ namespace Kolos1
         static void Main(string[] args)
         {
 
+            //Zadanie 1
+
             Komputer komputer1 = new Komputer("1",6000, 2000, 16);
             Komputer komputer2 = new Komputer("2",4500, 1000, 8);
             Komputer komputer3 = new Komputer("3",2500, 500, 4);
 
-            int ocena1 = ocena(komputer1);
-            int ocena2 = ocena(komputer2);
-            int ocena3 = ocena(komputer3);
+            int ocena1 = ocena(komputer1)/ komputer1.cena;
+            int ocena2 = ocena(komputer2) / komputer2.cena;
+            int ocena3 = ocena(komputer3) / komputer3.cena;
 
-            Wylicz(ocena1, ocena2, ocena3);
+            int elementy = 3;
 
+            Komputer[] oceny = new Komputer[elementy];
 
+            oceny[0] = komputer1;
+            oceny[1] = komputer2;
+            oceny[2] = komputer3;
+
+            Array.Sort(oceny, delegate (Komputer cena1, Komputer Cena2) { return cena1.cena.CompareTo(Cena2.cena); });
+
+            Console.WriteLine($"Najlepszy komputer to komputer nr:  {oceny[2].nazwa}");
+            Console.WriteLine($"Najgorszy komputer to komputer nr:  {oceny[0].nazwa}");
+            Console.WriteLine($"Średni komputer to komputer nr:  {oceny[1].nazwa}");
+
+            //
+
+            // Zadanie 2
             Console.WriteLine("Podaj ilość produktów:");
             string wpisz = Console.ReadLine();
             int ile = Int16.Parse(wpisz);
 
             Zadanie2(ile);
 
-            DateTime test = new DateTime(2021, 12, 20);
+            //Zadanie2 3
+
+            DateTime test = new DateTime(2019, 12, 20);
 
             BazaFirm bazaFirm = new BazaFirm("Nazwa","test@test.pl",test);
 
