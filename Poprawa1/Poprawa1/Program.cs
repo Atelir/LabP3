@@ -44,7 +44,15 @@ namespace Poprawa1
             bool powtarza;
             bool wylaczony; // 0 wyl 1 wl
 
+            public void Sprawdz(DateTime data)
+            
+                {
 
+
+
+
+
+                }
 
         }
 
@@ -88,7 +96,7 @@ namespace Poprawa1
 
             }
 
-            Console.WriteLine($"Czas na projekt to: {godzina}");
+            Console.WriteLine($"Czas na projekt to: {godzina} h");
 
         }
 
