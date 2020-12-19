@@ -113,7 +113,7 @@ namespace Poprawa1
             string ryzykoStr = Console.ReadLine();
 
 
-            //Godziny(iloscZespolu, ryzykoStr, godzinastr);
+            Godziny(iloscZespolu, ryzykoStr, godzinastr);
 
             //for (int i = 0; i < iloscLogow; i++)
             //{
