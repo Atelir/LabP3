@@ -1,37 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Poprawa1
 {
     class Program
     {
+       
+        public enum LogPoziom
+        {
+            Krytyczny,
+            Ostrzezenie,
+            Informacja
+        }
 
         public class Logi
         {
 
+            public LogPoziom _poziom;
+            public string tekst;
 
-            public string Blad = "Test";
-            public string Tekst = "test";
-
-
-            public Logi(string blad, string tekst)
+            public Logi(LogPoziom poziom, string tekst)
             {
-
-                Blad = blad;
-                Tekst = tekst;
-
+                _poziom = poziom;
+                this.tekst = tekst;
             }
-
-
-
         }
-
 
         class Budzik
         {
-
-            DateTime data = DateTime.Now;
-            string tytul;
-
             enum Dzwonek
             {
                 budzik1,
@@ -41,19 +37,46 @@ namespace Poprawa1
                 budzik5
             };
 
+            int godzina = 0;
+            int minuta = 0;
+            DateTime dataOstatniejAktywacji;
+            string tytul;
+            Dzwonek dzwonek;
             bool powtarza;
-            bool wylaczony; // 0 wyl 1 wl
+            bool wlaczony; // 0 wyl 1 wl
 
-            public void Sprawdz(DateTime data)
-            
+            public bool Sprawdz(DateTime date)
                 {
 
-
-
-
-
+                if(!wlaczony)
+                {
+                    return false;
                 }
 
+                int aktualnaGodzina = date.Hour;
+                int aktualnaMinuta = date.Minute;
+
+                if(aktualnaGodzina != godzina || aktualnaMinuta != minuta)
+                {
+                    return false;
+                }
+
+                if(powtarza && dataOstatniejAktywacji != null)
+                {
+                    if(dataOstatniejAktywacji.Day == date.Day && dataOstatniejAktywacji.Month == date.Month && dataOstatniejAktywacji.Year == date.Year)
+                    {
+                        return false; //budzik w tym dniu byl aktywny
+                    }
+                }
+
+                dataOstatniejAktywacji = date;
+
+                if (!powtarza)
+                {
+                    wlaczony = false;
+                }
+                return true;
+                }
         }
 
 
@@ -108,13 +131,68 @@ namespace Poprawa1
         }
 
 
+        private static readonly List<Logi> _logi = new List<Logi>();
+
+        private static void Wypelnij(LogPoziom logPoziom, string tekst)
+        {
+
+            if (_logi.Count < 10)
+            {
+
+                _logi.Add(new Logi(logPoziom, tekst));
+
+            }
+            else
+            {
+
+                _logi.RemoveAt(0);
+                _logi.Add(new Logi(logPoziom, tekst));
+
+            }
+
+        }
+
+        private static void DodajLog(LogPoziom logPoziom,string tekst)
+        {
+
+            int iloscOstrzezen = 0;
+            int iloscKrytycznych = 0;
+            int iloscInf = 0;
+
+            Wypelnij(logPoziom, tekst);
+
+            for (int i = 0; i < _logi.Count; i++)
+            {
+
+                if(_logi[i]._poziom == LogPoziom.Krytyczny)
+                {
+
+                    iloscKrytycznych += 1;
+
+                }
+                else if (_logi[i]._poziom == LogPoziom.Informacja)
+                {
+
+                    iloscInf += 1;
+
+                }
+                else
+                {
+
+                    iloscOstrzezen += 1;
+
+                }   
+
+            }
+            Console.WriteLine($"Ostrzeżeń: {iloscOstrzezen} / Informacji: {iloscInf} / Krytycznych: {iloscKrytycznych}");
+
+        }
+
         static void Main(string[] args)
         {
-            
-            int iloscLogow = 10;
-
-            Logi[] logi = new Logi[iloscLogow];
-
+            #region
+            /*
+            //Zadanie 1
             Console.WriteLine("Wpisz godziny projektu:");
             string godzinastr = Console.ReadLine();
 
@@ -130,30 +208,29 @@ namespace Poprawa1
             double godzina = Godziny(iloscZespolu, ryzykoStr, godzinastr);
 
             Console.WriteLine($"Czas na projekt to: {godzina} h");
+            
+            //Zadanie 2
 
-            //for (int i = 0; i < iloscLogow; i++)
-            //{
-            //    if (i == 9)
-            //    {
-            //        logi[i].Blad = "Krytyczny";
-            //        logi[i].Tekst = "test";
+            for (int i = 0; i < 3; i++)
+            {
+                Wypelnij(LogPoziom.Krytyczny, $"Test{i}");
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                Wypelnij(LogPoziom.Ostrzezenie, $"Test{i+3}");
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                Wypelnij(LogPoziom.Informacja, $"Test{i + 7}");
+            }
 
-            //    }
-            //    else if (i % 2 == 0)
-            //    {
-
-            //        logi[i].Blad = "Ostrzezenie";
-            //        logi[i].Tekst = "opis";
-
-            //    }
-            //    else
-            //    {
-
-            //        logi[i].Blad = "Informacja";
-            //        logi[i].Tekst = "info";
-            //    }
-            //}
-
+                Console.WriteLine("Podaj poziom bledu:");
+                LogPoziom logPoziom = (LogPoziom)Enum.Parse(typeof(LogPoziom), Console.ReadLine(), true);
+                Console.WriteLine("Podaj opis bledy");
+                string opis = Console.ReadLine();
+                DodajLog(logPoziom, opis);
+            */
+            #endregion
 
 
 
