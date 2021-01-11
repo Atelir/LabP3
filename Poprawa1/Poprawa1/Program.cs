@@ -58,36 +58,39 @@ namespace Poprawa1
 
 
 
-        public static void Godziny(string iloscZespolu, string ryzykoStr, string godzinaStr)
+        public static double Godziny(string iloscZespolu, string ryzykoStr, string godzinaStr)
         {
             double godzina = double.Parse(godzinaStr);
 
             godzina += 8;
 
+            godzina *= 3_600; // zamiana na sekundy w celu latwiejszego liczenia
+
+            godzina += godzina * 0.2; // buffor
+
+
+
             int ilosctEST = Int32.Parse(iloscZespolu);
-            double iloscZ = Double.Parse(iloscZespolu);
-            for (int i = 0; i < ilosctEST; i++)
-            {
 
-                godzina += (iloscZ * 0.05)*100;
+            godzina += godzina * (0.05 * ilosctEST);
 
-            }
-
-            iloscZ = Math.Floor(godzina);
 
             int ryzyko = Int32.Parse(ryzykoStr);
 
-            if (ryzyko > 0 && ryzyko < 8)
+            if (ryzyko >= 0 && ryzyko <= 10)
             {
+                if (ryzyko > 5 && ryzyko <= 8)
+                {
 
-                godzina += godzina * 0.3;
+                    godzina += godzina * 0.3; 
 
-            }
-            else if(ryzyko >= 8 && ryzyko <= 10)
-            {
+                }
+                else if(ryzyko > 8)
+                {
 
-                godzina += godzina * 0.5;
+                    godzina += godzina * 0.5;
 
+                }
             }
             else
             {
@@ -96,14 +99,18 @@ namespace Poprawa1
 
             }
 
-            Console.WriteLine($"Czas na projekt to: {godzina} h");
+            godzina /= 3_600;
+
+            godzina = Math.Round(godzina, 1);
+
+            return godzina;
 
         }
 
 
         static void Main(string[] args)
         {
-
+            
             int iloscLogow = 10;
 
             Logi[] logi = new Logi[iloscLogow];
@@ -120,8 +127,9 @@ namespace Poprawa1
             Console.WriteLine("Jakie jest ryzyko projektu");
             string ryzykoStr = Console.ReadLine();
 
+            double godzina = Godziny(iloscZespolu, ryzykoStr, godzinastr);
 
-            Godziny(iloscZespolu, ryzykoStr, godzinastr);
+            Console.WriteLine($"Czas na projekt to: {godzina} h");
 
             //for (int i = 0; i < iloscLogow; i++)
             //{
