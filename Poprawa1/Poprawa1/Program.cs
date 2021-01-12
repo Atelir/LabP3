@@ -191,7 +191,7 @@ namespace Poprawa1
         static void Main(string[] args)
         {
             #region
-            /*
+          
             //Zadanie 1
             Console.WriteLine("Wpisz godziny projektu:");
             string godzinastr = Console.ReadLine();
@@ -229,7 +229,7 @@ namespace Poprawa1
                 Console.WriteLine("Podaj opis bledy");
                 string opis = Console.ReadLine();
                 DodajLog(logPoziom, opis);
-            */
+            
             #endregion
 
 
