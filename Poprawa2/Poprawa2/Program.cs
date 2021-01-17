@@ -75,7 +75,25 @@ namespace Poprawa2
                 }
             }
 
+            public void zaloguj(string login, string haslo)
+            {
+                if (login.Equals(this.login) && haslo.Equals(this.haslo))
+                {
+                    CzyAktywny = true;
+                    OstatniaAktywnosc = DateTime.Now;
+                    Console.WriteLine(Skrzynka);
+                    Skrzynka = null;
+                }
 
+
+
+            }
+
+            public void wyloguj()
+            {
+                CzyAktywny = false;
+                OstatniaAktywnosc = DateTime.Now;
+            }
         }
 
         static void oplatTab(double[] tab, double balans) {
@@ -109,6 +127,17 @@ namespace Poprawa2
             }
 
 
+            //Zadanie 3
+
+            Konto konto1 = new Konto("abc", "123");
+
+            Console.WriteLine("Podaj login:");
+            string login = Console.ReadLine();
+            Console.WriteLine("Podaj haslo:");
+            string haslo = Console.ReadLine();
+            
+            konto1.zaloguj(login, haslo);
+            konto1.nowaWiadomosc("wiadomosc testowa");
         }
 
 
