@@ -105,7 +105,7 @@ namespace Poprawa2
             {
                 srednia += tab[i];
             }
-            
+            srednia /= 12;
             
         }
 
