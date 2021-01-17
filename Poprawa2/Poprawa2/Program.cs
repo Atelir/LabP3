@@ -25,6 +25,7 @@ namespace Poprawa2
 
 
             }
+            Console.WriteLine();
         }
 
         class Konto
@@ -135,9 +136,11 @@ namespace Poprawa2
             string login = Console.ReadLine();
             Console.WriteLine("Podaj haslo:");
             string haslo = Console.ReadLine();
-            
+            konto1.nowaWiadomosc("wiadomosc testowa - niezalogowany");
             konto1.zaloguj(login, haslo);
-            konto1.nowaWiadomosc("wiadomosc testowa");
+            konto1.nowaWiadomosc("wiadomosc testowa - zalogowany");
+
+
         }
 
 
