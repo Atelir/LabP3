@@ -23,7 +23,6 @@ namespace Poprawa2
 
                 Console.Write($"{tab[i]},");
 
-
             }
             Console.WriteLine();
         }
