@@ -171,7 +171,7 @@ namespace Kolokwium2
             }
                
             
-
+            // Zadanie 2
             Word word1 = new Word();
             Dlugopis dlugopis1 = new Dlugopis();
             MaszynaDoPisania maszynaDoPisania1 = new MaszynaDoPisania();
@@ -182,6 +182,7 @@ namespace Kolokwium2
             dlugopis1.Szkicuj("jak ja bardzo chce zdac te studia");
             maszynaDoPisania1.Napisz("ale jest ciezko");
             
+            //Zadanie 3
 
             Console.WriteLine("Podaj temperatur min");
             int tempmin = Int32.Parse(Console.ReadLine());
